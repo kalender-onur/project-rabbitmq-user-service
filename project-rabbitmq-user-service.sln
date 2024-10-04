@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{803A988E-DE3D-4D8F-89C8-58355AF6C46C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Persistence\Infrastructure.csproj", "{6EE7D345-62C9-4D29-9DA8-DD37006FED7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{78B9FF8A-2105-45F2-A2B3-658D0820C1E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{883CE284-E7B8-45F0-97F3-42EB817D07BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{90577F13-8E4C-4AD2-B4B2-038F7DAEA6F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{165D8712-32CA-4C85-B237-A8E7FAB7C93A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project-rabbitmq-user-service", "project-rabbitmq-user-service\project-rabbitmq-user-service.csproj", "{2447E832-929F-46C0-A4A8-E80B58AC9CE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{2179E1FB-4B81-4CF5-B210-D6A54B48B530}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{D87497A3-3BDA-4386-A3BD-C571F8CD12E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{803A988E-DE3D-4D8F-89C8-58355AF6C46C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803A988E-DE3D-4D8F-89C8-58355AF6C46C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803A988E-DE3D-4D8F-89C8-58355AF6C46C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803A988E-DE3D-4D8F-89C8-58355AF6C46C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EE7D345-62C9-4D29-9DA8-DD37006FED7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE7D345-62C9-4D29-9DA8-DD37006FED7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EE7D345-62C9-4D29-9DA8-DD37006FED7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EE7D345-62C9-4D29-9DA8-DD37006FED7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2447E832-929F-46C0-A4A8-E80B58AC9CE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2447E832-929F-46C0-A4A8-E80B58AC9CE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2447E832-929F-46C0-A4A8-E80B58AC9CE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2447E832-929F-46C0-A4A8-E80B58AC9CE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D87497A3-3BDA-4386-A3BD-C571F8CD12E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D87497A3-3BDA-4386-A3BD-C571F8CD12E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D87497A3-3BDA-4386-A3BD-C571F8CD12E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D87497A3-3BDA-4386-A3BD-C571F8CD12E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{803A988E-DE3D-4D8F-89C8-58355AF6C46C} = {883CE284-E7B8-45F0-97F3-42EB817D07BC}
+		{6EE7D345-62C9-4D29-9DA8-DD37006FED7E} = {90577F13-8E4C-4AD2-B4B2-038F7DAEA6F9}
+		{883CE284-E7B8-45F0-97F3-42EB817D07BC} = {78B9FF8A-2105-45F2-A2B3-658D0820C1E2}
+		{90577F13-8E4C-4AD2-B4B2-038F7DAEA6F9} = {78B9FF8A-2105-45F2-A2B3-658D0820C1E2}
+		{165D8712-32CA-4C85-B237-A8E7FAB7C93A} = {78B9FF8A-2105-45F2-A2B3-658D0820C1E2}
+		{2447E832-929F-46C0-A4A8-E80B58AC9CE8} = {165D8712-32CA-4C85-B237-A8E7FAB7C93A}
+		{2179E1FB-4B81-4CF5-B210-D6A54B48B530} = {78B9FF8A-2105-45F2-A2B3-658D0820C1E2}
+		{D87497A3-3BDA-4386-A3BD-C571F8CD12E5} = {2179E1FB-4B81-4CF5-B210-D6A54B48B530}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {219EC212-AEC0-4829-948F-B5032A534557}
+	EndGlobalSection
+EndGlobal
