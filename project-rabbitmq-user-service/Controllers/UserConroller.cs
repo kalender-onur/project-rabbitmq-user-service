@@ -1,4 +1,6 @@
 ﻿using Application.Interfaces.AppUser;
+using Application.Interfaces.RabbitMq;
+using Domain.Common;
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using RabbitMQ.Client;
@@ -13,12 +15,17 @@ namespace project_rabbitmq_user_service.Controllers
         private readonly ILogger<UserConroller> _logger;
         private readonly IAppUserService _appUserService;
         private readonly IConfiguration _configuration;
+        private readonly IRabbitMqService _rabbitMqService;
 
-        public UserConroller(ILogger<UserConroller> logger, IAppUserService appSerice, IConfiguration configuration)
+        public UserConroller(ILogger<UserConroller> logger,
+            IAppUserService appSerice,
+            IConfiguration configuration,
+            IRabbitMqService rabbitMqService)
         {
             _logger = logger;
             _appUserService = appSerice;
             _configuration = configuration;
+            _rabbitMqService = rabbitMqService;
 
         }
         [HttpPost]
@@ -28,36 +35,13 @@ namespace project_rabbitmq_user_service.Controllers
             {
                 var result = await _appUserService.AddUserAsync(appUser);
 
-                string connectionString = _configuration.GetValue<string>("RabbitMqConnectionString:DefaultConnection");
-
-                ConnectionFactory factory = new ConnectionFactory();
-              
-                factory.Uri = new Uri(connectionString);
-                factory.ClientProvidedName = "Project RabbitMq User Service";
-
-                IConnection cnn = factory.CreateConnection();
-                IModel channel = cnn.CreateModel();
-
-                string exchangeName = "DemoExchange";
-                string routingKey = "demo-rouiting-key";
-                string queueName = "DemoQueue";
-
-                channel.ExchangeDeclare(exchangeName, ExchangeType.Direct);
-                channel.QueueDeclare(queueName, false, false, false, null);
-                channel.QueueBind(queueName, exchangeName, routingKey, null);
-
-                byte[] messageBodyBytes = Encoding.UTF8.GetBytes(result.Message);
-                channel.BasicPublish(exchangeName, routingKey, null, messageBodyBytes);
-
-                channel.Close();
-                cnn.Close();
+                _rabbitMqService.SendMessage(result.Message);
 
                 return Ok(result);
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                return NotFound(Result<bool>.FailureResult(ex.Message));
             }
 
         }
